@@ -3,10 +3,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { MaestroComponent } from './maestro/maestro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MaestroComponent
   ],
   imports: [
     BrowserModule,
