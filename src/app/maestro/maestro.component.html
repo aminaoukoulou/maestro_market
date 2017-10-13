@@ -1,3 +1,29 @@
-<p>
-  maestro works!
-</p>
+<nav>
+  <button mat-button>Login / Register</button>
+  <button mat-button>Maestros</button>
+  <button mat-mini-fab color='accent' (click)='toggle()'><i class="material-icons">shopping_basket</i></button>
+</nav>
+
+<app-basket *ngIf='togglebasket' [basket]='basket'></app-basket>
+
+<section class='grid'>
+  <figure *ngFor='let maestro of maestros' [class.selected]="maestro === selectedMaestro">
+    <img src='{{maestro.picture}}'>
+    {{maestro.name}} - {{maestro.price}}€/h
+    <button mat-button color="primary" (click)="onSelect(maestro)">Voir Plus</button>
+  </figure>
+</section>
+
+<aside id='profil' *ngIf="selectedMaestro">
+  <h1 color="primary">{{selectedMaestro.name}} - {{selectedMaestro.age}} ans</h1>
+  <img src='{{selectedMaestro.picture}}'>
+  <q>{{selectedMaestro.about}}</q>
+  <ul>
+    <li>Ville: {{selectedMaestro.city}}</li>
+    <li>Taille: {{selectedMaestro.height}}cm</li>
+    <li>Sport: {{selectedMaestro.sport}}</li>
+    <li>Bagarres: {{selectedMaestro.fights}}</li>
+    <li>Prix: {{selectedMaestro.price}}€/h</li>
+  </ul>
+  <button mat-raised-button color='accent' (click)="add(selectedMaestro)"><i class="material-icons">shopping_basket</i></button>
+</aside>

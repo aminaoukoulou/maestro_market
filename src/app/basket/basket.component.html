@@ -1,0 +1,9 @@
+<h1>Panier</h1>
+<article *ngFor="let maestro of basket">
+  <img src='{{maestro.picture}}'>
+  <ul>
+    <li><h2>{{maestro.name}}</h2></li>
+    <li><h3>{{maestro.age}} ans</h3></li>
+  </ul>
+  <h1><b>{{maestro.price}}</b>€/h</h1>
+</article>
